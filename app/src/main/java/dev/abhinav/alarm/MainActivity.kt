@@ -19,9 +19,14 @@ import androidx.core.app.ActivityCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import dagger.hilt.android.AndroidEntryPoint
+import dev.abhinav.alarm.alarm.presentation.alarm_detail.navigation.alarmDetailDestination
+import dev.abhinav.alarm.alarm.presentation.alarm_detail.navigation.navigateToAlarmDetail
 import dev.abhinav.alarm.alarm.presentation.alarm_list.navigation.AlarmListNavigation
+import dev.abhinav.alarm.alarm.presentation.alarm_list.navigation.alarmListDestination
 import dev.abhinav.alarm.ui.theme.AlarmTheme
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,17 +68,15 @@ class MainActivity : ComponentActivity() {
             startDestination = AlarmListNavigation,
             modifier = modifier,
         ) {
-//            alarmListDestination(onNavigateToAlarmDetail = { alarmId ->
-//                navController.navigateToAlarmDetail(alarmId)
-//            })
-//            alarmDetailDestination(
-//                onNavigateBack = {
-//                    navController.navigateUp()
-//                },
-//                onNavigateToRingtoneSettings = {
-//
-//                }
-//            )
+            alarmListDestination(onNavigateToAlarmDetail = { alarmId ->
+                navController.navigateToAlarmDetail(alarmId)
+            })
+            alarmDetailDestination(
+                onNavigateBack = {
+                    navController.navigateUp()
+                },
+                onNavigateToRingtoneSettings = {}
+            )
 //
 //            alarmRingingDestination(onNavigateBack = {
 //                navController.navigateUp()
