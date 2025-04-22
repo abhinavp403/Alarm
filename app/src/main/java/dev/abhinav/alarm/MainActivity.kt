@@ -24,6 +24,7 @@ import dev.abhinav.alarm.alarm.presentation.alarm_detail.navigation.alarmDetailD
 import dev.abhinav.alarm.alarm.presentation.alarm_detail.navigation.navigateToAlarmDetail
 import dev.abhinav.alarm.alarm.presentation.alarm_list.navigation.AlarmListNavigation
 import dev.abhinav.alarm.alarm.presentation.alarm_list.navigation.alarmListDestination
+import dev.abhinav.alarm.alarm.presentation.ringing.navigation.alarmRingingDestination
 import dev.abhinav.alarm.ui.theme.AlarmTheme
 
 @AndroidEntryPoint
@@ -77,10 +78,10 @@ class MainActivity : ComponentActivity() {
                 },
                 onNavigateToRingtoneSettings = {}
             )
-//
-//            alarmRingingDestination(onNavigateBack = {
-//                navController.navigateUp()
-//            })
+
+            alarmRingingDestination(onNavigateBack = {
+                navController.navigateUp()
+            })
         }
     }
 }
